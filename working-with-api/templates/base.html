@@ -22,16 +22,16 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <!-- Links to be updated -->
-        <a class="navbar-brand" href="#">Software Fellowship 2021</a>
+        <a class="navbar-brand" href="{{url_for('get_books')}}">Software Fellowship 2021</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#">Books</a></li>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">Characters</a></li>
+          <li><a href="{{url_for('get_books')}}">Books</a></li>
+          <li><a href="{{url_for('get_movies')}}">Movies</a></li>
+          <li><a href="{{url_for('get_characters')}}">Characters</a></li>
         </ul>
       </div>
+      <!--/.nav-collapse -->
     </div>
   </nav>
 

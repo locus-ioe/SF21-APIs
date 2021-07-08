@@ -16,7 +16,8 @@ API_KEY = app.config['API_KEY']
 def get_books():
     # Get books from api : https://the-one-api.dev/v2/book
     response = requests.get("https://the-one-api.dev/v2/book")
-    
+
+    # Convert response object to dict 
 
     return jsonify()
     # return render_template('table.html', type="Books", data=books)
@@ -35,8 +36,7 @@ def get_movies():
     extracted_data = response.json()
     movies = extracted_data["docs"]
 
-    return jsonify()
-    # return render_template('table.html', type="Movies", data=movies)
+    return render_template('table.html', type="Movies", data=movies)
 
 
 @app.route('/characters', methods=["GET"])
@@ -46,17 +46,15 @@ def get_characters():
 
     headers = {"Authorization": f'Bearer {API_KEY}'}
 
-
     # Get Characters from api: https://the-one-api.dev/v2/character
 
     response = requests.get("https://the-one-api.dev/v2/character",
                             headers=headers)
-    
+
     extracted_data = response.json()
     characters = extracted_data["docs"]
 
-    return jsonify()
-    # return render_template('table.html', type='Characters', data=characters)
+    return render_template('table.html', type='Characters', data=characters)
 
 
 if __name__ == '__main__':
