@@ -7,7 +7,7 @@ import requests
 
 app = Flask(__name__)
 
-app.config.from_pyfile('config')
+app.config.from_pyfile('config.py')
 
 API_KEY = app.config['API_KEY']
 
