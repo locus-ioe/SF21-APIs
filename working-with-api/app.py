@@ -1,6 +1,7 @@
 # Create virtual environment
 # $ python3 -m pip install flask
 # $ python3 -m pip install requests
+# Get api key from https://the-one-api.dev
 
 from flask import Flask, render_template, jsonify
 import requests
