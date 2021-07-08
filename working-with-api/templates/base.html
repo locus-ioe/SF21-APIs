@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <title>
+    Software Fellowship Day 4
+  </title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static',filename='bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='theme.css')}}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- Links to be updated -->
+        <a class="navbar-brand" href="#">Software Fellowship 2021</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Movies</a></li>
+          <li><a href="#">Characters</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container theme-showcase" role="main">
+    {% block body%}
+
+    {%endblock%}
+  </div>
+
+</body>
+
+</html>
