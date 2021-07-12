@@ -29,7 +29,7 @@ players = [
 @app.route('/', methods=['GET'])
 def get_players():
     #------------------------ Player Get Logic Here -------------------------#
-    return jsonify()
+    return jsonify(players)
 
 # CREATE A PLAYER
 
@@ -38,11 +38,21 @@ def get_players():
 def create_player():
     # Get New Player data from request
     new_player = request.get_json()
+
     id = new_player['id']
     name = new_player['name']
     country = new_player['country']
 
     #------------------------ Player Creation Logic Here -------------------------#
+    print(new_player)
+
+    players.append(
+        {
+            'id': id,
+            'name': name,
+            'country': country
+        }
+    )
 
 
     return jsonify({'message': 'player created'})
@@ -59,11 +69,10 @@ def update_player(id):
 
     for player in players:
         if player['id'] == id:
-
             #------------------------ Player Update Logic Here -------------------------#
-
-            pass
-
+            player['name'] = new_name
+            player['country'] = new_country
+            return jsonify({'message': 'player updated'})
 
     return jsonify({'message': f'Player with id {id} does not exist'})
 
@@ -73,10 +82,9 @@ def update_player(id):
 def delete_player(id):
     for player in players:
         if player["id"] == id:
-
             #------------------------ Delete player logic-------------------------#
-
-            pass
+            players.remove(player)
+            return jsonify({'message': 'player deleted'})
 
     return jsonify({'message': f'Player with id {id} does not exist'})
 
@@ -87,9 +95,10 @@ def get_player_by_id(id):
     for player in players:
         if player["id"] == id:
             #------------------------ Single Player Get Logic Here -------------------------#
-            pass
+            return jsonify(player)
+
     return jsonify({'message': f'Player with id {id} does not exist'})
 
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=5001, debug=True)

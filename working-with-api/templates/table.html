@@ -1,36 +1,24 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class='h3'> Type </div>
+<div class='h3'> {{type}} </div>
 <div class='table-responsive'>
     <table class="table table-fixed">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                {% for key in data[0].keys() %}
+                <th scope="col">{{key}}</th>
+                {% endfor %}
             </tr>
         </thead>
         <tbody>
+            {% for row in data %}
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                {% for cell in row.values()%}
+                <td>{{cell}}</td>
+                {% endfor %}
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
